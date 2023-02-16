@@ -1,0 +1,92 @@
+Important Commands
+
+
+File Descriptors
+
+0: Standard input (stdin)
+1: Standard output (stdout)
+2: Standard error (stderr)
+3-9: Additional file descriptors
+
+>: Redirects output from a command to a file, overwriting the file if it already exists
+>>: Redirects output from a command to a file, appending the output to the end of the file if it already exists
+2>: Redirects stderr from a command to a file, overwriting the file if it already exists
+2>>: Redirects stderr from a command to a file, appending the output to the end of the file if it already exists
+&>: Redirects both stdout and stderr from a command to a file, overwriting the file if it already exists
+&>>: Redirects both stdout and stderr from a command to a file, appending the output to the end of the file if it already exists
+n>: Redirects the output of file descriptor n to a file, overwriting the file if it already exists
+n>>: Redirects the output of file descriptor n to a file, appending the output to the end of the file if it already exists
+n>&m: Redirects the output of file descriptor n to the same file descriptor as m
+n<&m: Redirects the input of file descriptor n to the same file descriptor as m
+
+>: Redirects standard output to a file. If the file already exists, it is overwritten. 
+Use case: To save standard output to a file. 
+Pros: Useful for saving output to a file without appending to an existing file. 
+Cons: Overwrites any existing file with the same name.
+
+>>: Redirects standard output to a file. If the file already exists, it is appended to. 
+Use case: To save standard output to a file without overwriting any existing data.
+Pros: Useful for appending to an existing file.
+Cons: Can result in the file growing very large and unwieldy.
+
+2>: Redirects standard error to a file. If the file already exists, it is overwritten. 
+Use case: To save error output to a file.
+Pros: Useful for debugging or error reporting.
+Cons: Overwrites any existing file with the same name.
+
+2>>: Redirects standard error to a file. If the file already exists, it is appended to. 
+Use case: To save error output to a file without overwriting any existing data.
+Pros: Useful for appending to an existing file.
+Cons: Can result in the file growing very large and unwieldy.
+
+&>: Redirects both standard output and standard error to a file. If the file already exists, it is overwritten. 
+Use case: To save both standard output and error output to a file.
+Pros: Useful for saving both types of output to a single file.
+Cons: Overwrites any existing file with the same name.
+
+&>>: Redirects both standard output and standard error to a file. If the file already exists, it is appended to. 
+Use case: To save both standard output and error output to a file without overwriting any existing data.
+Pros: Useful for appending to an existing file.
+Cons: Can result in the file growing very large and unwieldy.
+
+> file 2>&1: Redirects standard output to a file and standard error to the same file. If the file already exists, it is overwritten.
+Use case: To save both standard output and error output to a single file.
+Pros: Useful for saving both types of output to a single file.
+Cons: Overwrites any existing file with the same name.
+
+>> file 2>&1: Redirects standard output to a file and standard error to the same file. If the file already exists, it is appended to.
+Use case: To save both standard output and error output to a single file without overwriting any existing data.
+Pros: Useful for appending to an existing file.
+Cons: Can result in the file growing very large and unwieldy.
+
+command1 | command2: Redirects standard output from command1 to standard input of command2.
+Use case: To pipe the output of one command into another command.
+Pros: Allows for more complex processing of data.
+Cons: Can be difficult to debug if there are issues with the pipeline.
+
+command > file 2>&1 &: Redirects standard output and standard error to a file and runs the command in the background.
+Use case: To run a command in the background while saving the output to a file.
+Pros: Useful for running long-running commands.
+Cons: Can be difficult to debug if there are issues with the command.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
